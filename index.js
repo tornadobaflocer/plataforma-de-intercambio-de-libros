@@ -16,6 +16,12 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(cors()); // Habilitar CORS para permitir solicitudes de diferentes orígenes
 app.use(bodyParser.json()); // Middleware para analizar solicitudes JSON
 
+// Middleware para manejar errores
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Algo salió mal!');
+});
+
 // Ruta raíz que envía un mensaje de bienvenida
 app.get('/', (req, res) => {
   res.send('Bienvenido a la plataforma de intercambio de libros');
