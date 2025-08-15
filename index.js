@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 const mongoURI = 'mongodb://localhost:27017/libros-intercambio';
 
 // Conectar a MongoDB
+// Configuración de mongoose para manejar la conexión a la base de datos
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error(err));
