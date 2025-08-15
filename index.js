@@ -13,8 +13,8 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error(err));
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors()); // Habilitar CORS para permitir solicitudes de diferentes orígenes
+app.use(bodyParser.json()); // Middleware para analizar solicitudes JSON
 
 app.get('/', (req, res) => {
   res.send('Bienvenido a la plataforma de intercambio de libros');
