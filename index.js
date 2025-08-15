@@ -11,7 +11,10 @@ const mongoURI = 'mongodb://localhost:27017/libros-intercambio';
 // Configuración de mongoose para manejar la conexión a la base de datos
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB conectado'))
-  .catch(err => console.error(err));
+  .catch(err => {
+    console.error('Error conectando a MongoDB:', err);
+    process.exit(1); // Termina el proceso si hay un error de conexión
+  });
 
 app.use(cors()); // Habilitar CORS para permitir solicitudes de diferentes orígenes
 app.use(bodyParser.json()); // Middleware para analizar solicitudes JSON
