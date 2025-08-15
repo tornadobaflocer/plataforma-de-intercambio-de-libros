@@ -25,6 +25,14 @@ app.use((err, req, res, next) => {
   res.status(500).send('Algo salió mal!');
 });
 
+// Middleware para manejar errores de tipo JSON inválido
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).send({ message: 'JSON inválido' });
+  }
+  next();
+});
+
 // Ruta raíz que envía un mensaje de bienvenida
 app.get('/', (req, res) => {
   res.send('Bienvenido a la plataforma de intercambio de libros');
