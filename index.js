@@ -16,10 +16,12 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(cors()); // Habilitar CORS para permitir solicitudes de diferentes orígenes
 app.use(bodyParser.json()); // Middleware para analizar solicitudes JSON
 
+// Ruta raíz que envía un mensaje de bienvenida
 app.get('/', (req, res) => {
   res.send('Bienvenido a la plataforma de intercambio de libros');
 });
 
+// Iniciar el servidor en el puerto definido
 app.listen(PORT, () => {
   console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
