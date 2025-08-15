@@ -8,14 +8,14 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.10.9",
+    "express": "^4.18.2",  // Updated version for security patch
+    "mongoose": "^6.0.12", // Updated version for compatibility
     "body-parser": "^1.19.0",
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.22" // Updated version
   },
-  "author": "",
+  "author": "Tu Nombre", // Added author information
   "license": "MIT"
 }
